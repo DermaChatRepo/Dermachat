@@ -1,0 +1,75 @@
+project_directory/
+│
+│
+├── pipino_doctorino/
+│   ├── settings.py # settings (database, AWS credentails ecc...)
+│   ├── urls.py     # initial urls of each app (in this case only dermachat)
+│   └── ...
+│
+├── dermachat/ # user_interface
+│   ├── static/
+│   │   └── css    # this has the decoration of front end
+│   │   
+│   │   
+│   ├──templates/
+│   │   └── upload_image.html   # front end code
+│   │
+│   ├── views.py   # back end code (for the image upload, prediction and adding in the database)
+│   ├── chatbot.py # code of the chatbot
+│   ├── forms.py   # little code to implement the upload of an image
+│   ├── models.py  # create the database with raw_data
+│   ├── urls.py    # urls of the page 
+│   ├── test.py    # testing
+│   ├── helper.py  # file with all the function of the views.py
+│   └── ...
+│ 
+│ 
+├── doctor_interface/ # doctor_interface
+│   ├── static/
+│   │   └── css    # this has the decoration of front end
+│   │   
+│   │   
+│   ├──templates/
+│   │   ├── doctor_interface.html   # front end code for doctor
+│   │   └── table_view.html  # front end code for the table of the doctor
+│   │
+│   ├── views.py   # back end code (for displaying images and put the diagnosis of the image in the database)
+│   ├── urls.py    # urls of the page 
+│   ├── test.py    # testing
+│   ├── models.py  # create the database with complete data
+│   └── ...
+│ 
+│
+├── media/
+│   └── images.jpg    # images uploaded by the user
+│
+├── models/          # our models
+│   ├── chatbot_features  # code of the text models
+│   └── image_models      # code of the image models
+│
+├── modeling/          # notebook for modeling
+│   └── notebooks      # code for models
+│
+├── EDA/             # EDA to obtain the merged csv that we have to put in the database
+│   ├── Fitzpatrick
+│   ├── DDI
+│   └── combined     # code for merging the csv 
+│
+├── Skin Image Classification Explainability using Grad-CAM.ipynb  # notebook for the explainability of the model
+│   
+├── manage.py        # this is the python file that start django, it retrieves the settings with the project folder -> pipino doctorino and start the app -> dermachat
+│ 
+├── docker-compose.yml  # it build the docker
+├── dockerignore        # i ignore folder like EDA that dont go inside the docker
+├── Dockerfile          # it build the docker
+│ 
+├── pipfile          # this two files are like poetry for the virtual enviroment but without venv and the other files
+├── pipfile.lock
+│ 
+├── gitignore        # i git ignore some files that dont go in the repo
+│
+├── db.sqlite3      # database
+│
+├── README.md        
+│
+└── requirements.txt # requirements for the app necessary for the building of the docker
